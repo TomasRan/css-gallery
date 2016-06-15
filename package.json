@@ -1,0 +1,19 @@
+{
+  "name": "css-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fis-conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasRan/css-gallery.git"
+  },
+  "author": "tomasran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TomasRan/css-gallery/issues"
+  },
+  "homepage": "https://github.com/TomasRan/css-gallery#readme"
+}
