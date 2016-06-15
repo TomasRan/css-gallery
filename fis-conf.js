@@ -1,34 +1,27 @@
-// default settings. fis3 release
+/* 
+ * 相关文档参考
+ * https://github.com/fex-team/fis3/blob/master/doc/docs/api/config-props.md#%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7
+ */
 
-// Global start
-fis.match('*.{js,css}', {
-  useHash: true
+fis.set('charset', 'utf-8');
+fis.set('md5Length', 10);
+fis.set('md5Connector', '.');
+fis.set('files', ['**']);
+fis.set('ignore', ['node_modules/**', 'output/**', '.git/**', 'fis-conf.js']);
+fis.set('fileType.text', '');
+fis.set('fileType.image', '');
+fis.set('new date', Date.now());
+
+fis.match('**/*.scss', {
+	rExt: '.css',
+	parser: fis.plugin('node-sass'),
+	query: '?t=' + fis.get('new date')
 });
 
-fis.match('::image', {
-  useHash: true
+fis.match('*.scss', {
+	optimizer: fis.plugin('clean-css'),
 });
 
-fis.match('*.js', {
-  optimizer: fis.plugin('uglify-js')
-});
-
-fis.match('*.css', {
-  optimizer: fis.plugin('clean-css')
-});
-
-fis.match('*.png', {
-  optimizer: fis.plugin('png-compressor')
-});
-
-// Global end
-
-// default media is `dev`
 fis.media('dev')
-  .match('*', {
-    useHash: false,
-    optimizer: null
-  });
-
-// extends GLOBAL config
-fis.media('production');
+	.match('*', {
+	});
