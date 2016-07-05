@@ -12,15 +12,25 @@ fis.set('fileType.text', '');
 fis.set('fileType.image', '');
 fis.set('new date', Date.now());
 
+fis.match('::package', {
+	spriter: fis.plugin('csssprites')
+});
+
 fis.match('**/*.scss', {
 	rExt: '.css',
 	parser: fis.plugin('node-sass'),
-	query: '?t=' + fis.get('new date')
+	query: '?t=' + fis.get('new date'),
+	useSprite: true
 });
 
 fis.match('*.scss', {
 	optimizer: fis.plugin('clean-css'),
 });
+
+fis.match('*.png', {
+	optimizer: fis.plugin('png-compressor')
+});
+
 
 fis.media('dev')
 	.match('*', {
